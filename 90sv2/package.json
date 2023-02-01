@@ -1,7 +1,7 @@
 {
   "name": "90sv2",
   "version": "0.1.0",
-  "homepage": "https://Nitsua.github.io/90s-website-v2",
+  "homepage": "https://Nitsua28.github.io/90s-website-v2",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
