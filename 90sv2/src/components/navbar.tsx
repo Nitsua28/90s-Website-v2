@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import type * as CSS from 'csstype';
+import { Outlet, Link } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 
 interface Style extends CSS.Properties, CSS.PropertiesHyphen {}
 
@@ -29,7 +31,7 @@ const liStyle: Style =
     float: 'left'
 };
 
-const aStyle: Style =
+const linkStyle: Style =
 {
     display: 'block',
     color: 'white',
@@ -46,24 +48,25 @@ export function Navbar (){
     return (
     <>
         <ul style ={ulStyle}>
-        <li style = {looksActive}><a style ={aStyle} >Home</a></li>
-        <li style = {isHoveringOfficialTab ? onHover : liStyle} 
-            onMouseEnter= {()=>{ setIsHoveringOfficialTab(true)}} 
-            onMouseLeave= {()=> setIsHoveringOfficialTab(false)}
-            ><a style = {aStyle}>Official Smash 64 website</a></li>
-        <li style = {isHoveringTierTab ? onHover : liStyle} 
-            onMouseEnter= {()=>{ setIsHoveringTierTab(true)}} 
-            onMouseLeave= {()=> setIsHoveringTierTab(false)}
-            ><a style = {aStyle}>Tierlist</a></li>
-        <li style = {isHoveringContactTab ? onHover : liStyle} 
-            onMouseEnter= {()=>{ setIsHoveringContactTab(true)}} 
-            onMouseLeave= {()=> setIsHoveringContactTab(false)}
-            ><a style = {aStyle}>Contact</a></li>
-        <li style = {isHoveringVideoTab ? onHover : liStyle} 
-            onMouseEnter= {()=>{ setIsHoveringVideoTab(true)}} 
-            onMouseLeave= {()=> setIsHoveringVideoTab(false)}
-            ><a style = {aStyle}>Old Introduction Video</a></li>
+            <li style = {looksActive}><Link to="/" style={linkStyle}>Home</Link></li>
+            <li style = {isHoveringOfficialTab ? onHover : liStyle} 
+                onMouseEnter= {()=>{ setIsHoveringOfficialTab(true)}} 
+                onMouseLeave= {()=> setIsHoveringOfficialTab(false)}
+                ><Link to="https://web.archive.org/web/19991127081403/http://www.smashbros.com/enter.html" style={linkStyle}>Official Smash 64 Website</Link></li>
+            <li style = {isHoveringTierTab ? onHover : liStyle} 
+                onMouseEnter= {()=>{ setIsHoveringTierTab(true)}} 
+                onMouseLeave= {()=> setIsHoveringTierTab(false)}
+                ><Link to="/tierlist" style={linkStyle}>Tier List</Link></li>
+            <li style = {isHoveringContactTab ? onHover : liStyle} 
+                onMouseEnter= {()=>{ setIsHoveringContactTab(true)}} 
+                onMouseLeave= {()=> setIsHoveringContactTab(false)}
+                ><Link to="/contacts" style={linkStyle}>Contacts</Link></li>
+            <li style = {isHoveringVideoTab ? onHover : liStyle} 
+                onMouseEnter= {()=>{ setIsHoveringVideoTab(true)}} 
+                onMouseLeave= {()=> setIsHoveringVideoTab(false)}
+                ><Link to="/video" style={linkStyle}>Old Introduction Video</Link></li>
         </ul>
+        
     </>
     );
 }
